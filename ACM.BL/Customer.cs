@@ -35,7 +35,31 @@ namespace ACM.BL
         }
         public string FullName
         {
-            get => _firstName + "," + _lastName;
+            get 
+            {
+                // The FullName style: "LastName, FirstName"
+
+                // Set the full name to LastName initially
+                string fullName = LastName;
+                if (!string.IsNullOrEmpty(FirstName))
+                {
+                    if (!string.IsNullOrEmpty(fullName))
+                    {
+                        fullName += ", ";
+                    }
+                    // Set the full name to FirstName
+                    fullName += FirstName;
+                }
+
+                if (string.IsNullOrEmpty(FirstName) && string.IsNullOrEmpty(LastName))
+                {
+                    FirstName = "User";
+                    LastName = "New";
+                    return LastName + ", " + FirstName;
+                }
+                return fullName;
+            }
+
         }
     }
 }
