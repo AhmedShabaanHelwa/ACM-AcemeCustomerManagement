@@ -42,6 +42,7 @@ namespace ACM.BLTest
             //-- Assert
             Assert.AreEqual(expected, actual);
         }
+        // Case 3
         /// <summary>
         /// Tests Hanlding of Empty LastName
         /// </summary>
@@ -56,6 +57,7 @@ namespace ACM.BLTest
             //-- Assert
             Assert.AreEqual(expected, actual);
         }
+        // Case 4
         /// <summary>
         /// Tests handling of both empty First and Last names
         /// </summary>
@@ -67,6 +69,24 @@ namespace ACM.BLTest
             string expected = "New, User";
             //-- Act
             string actual = customer.FullName;
+            //-- Assert
+            Assert.AreEqual(expected, actual);
+        }
+        // Case 5
+        /// <summary>
+        /// Tests the static counter of instances
+        /// </summary>
+        [TestMethod]
+        public void InstanceCounter_TestValid()
+        {
+            //-- Arrange
+            // Creating 3 instaces
+            var c1 = new Customer();
+            var c2 = new Customer();
+            var c3 = new Customer();
+            int expected = 3;
+            //-- Act
+            int actual = 3;
             //-- Assert
             Assert.AreEqual(expected, actual);
         }

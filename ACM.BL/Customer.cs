@@ -61,5 +61,11 @@ namespace ACM.BL
             }
 
         }
+
+        public static int InstancesCounter { get; private set; }
+        public Customer()
+        {
+            InstancesCounter++;
+        }
     }
 }
