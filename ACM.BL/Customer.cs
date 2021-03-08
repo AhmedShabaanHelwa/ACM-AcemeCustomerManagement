@@ -61,11 +61,54 @@ namespace ACM.BL
             }
 
         }
+        public string EmailAddress { get; set; }
 
         public static int InstancesCounter { get; private set; }
         public Customer()
         {
             InstancesCounter++;
+        }
+
+        // Public methods
+        
+        /// <summary>
+        /// Validates the inputs Custoemr properties
+        /// </summary>
+        /// <returns>true or false</returns>
+        public bool Validate()
+        {
+            bool isValid = false;
+            if (string.IsNullOrEmpty(LastName)) isValid = true;
+            if (string.IsNullOrEmpty(FullName) || string.IsNullOrEmpty(EmailAddress)) isValid = true;
+            return isValid;
+        }
+        /// <summary>
+        /// Saves the current customer
+        /// </summary>
+        /// <returns>true or falase</returns>
+        public bool Save()
+        {
+            // Saves the customer changes
+            return true;
+        }
+        /// <summary>
+        /// Retrieves a customer with specific Id
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns>Customer instance</returns>
+        public Customer Retrieve(int customerId)
+        {
+            // return the defined customer
+            return new Customer();
+        }
+        /// <summary>
+        /// List of Customers
+        /// </summary>
+        /// <returns></returns>
+        public List<Customer> Retrieve()
+        {
+            // retrieves all of the customers
+            return new List<Customer>();
         }
     }
 }

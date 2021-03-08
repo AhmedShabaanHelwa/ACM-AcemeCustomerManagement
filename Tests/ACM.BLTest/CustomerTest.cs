@@ -90,5 +90,42 @@ namespace ACM.BLTest
             //-- Assert
             Assert.AreEqual(expected, actual);
         }
+
+        // Methods test cases
+        
+        // Case 6
+        /// <summary>
+        /// Tests the operation of valid input customer properties
+        /// </summary>
+        [TestMethod]
+        public void Validate_TestVaild()
+        {
+            //-- Arrange
+            var customer = new Customer 
+            { 
+                LastName = "Shaban",
+                EmailAddress = "ahmedshabaan@outlook.com" 
+            };
+            bool expected = true;
+            //-- Act
+            bool actual = true;
+            //-- Assert
+            Assert.AreEqual(expected,actual);
+        }
+        /// <summary>
+        /// Tests the operation of invalid input customer properties
+        /// </summary>
+        [TestMethod]
+        public void Validate_TestInVaild()
+        {
+            //-- Arrange
+            Customer customer = new Customer()
+            { EmailAddress = "ahmedshabaan@outlook.com" };
+            bool expected = false;
+            //-- Act
+            bool actual = false;
+            //-- Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
